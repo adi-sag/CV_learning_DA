@@ -1,0 +1,76 @@
+SQL Hackerrank questions - 
+https://www.dsfaisal.com/articles/sql/hackerrank-sql-problem-solving
+
+42. The PADS | Medium | HackerRank
+Generate the following two result sets:
+Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format:
+There are a total of [occupation_count] [occupation]s.
+
+where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.
+
+Note: There will be at least two entries in the table for each type of occupation.
+----------------------------------------------------------------------
+Select CONCAT(NAME,"(",SUBSTR(OCCUPATION,1,1),")") FROM OCCUPATIONS ORDER BY NAME ASC ;
+
+=========================
+43. The Report | Medium | HackerRank
+-------------------------------------------
+SELECT IF GRADE <= 8 THEN NULL ELSE NAME, GRADE, MARKS FROM STUDENTS LEFT JOIN GRADES ON MARKS >= MIN_MARKS AND MARKS <= MAX_MARKS ORDER BY GRADE DESC, NAME, MARKS
+
+========================
+48. Binary Tree Nodes | Medium | HackerRank
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+
+Select N, case when P = Null then Root 
+when N EXists IN (Select DISTINCT P from BST ) then Inner 
+ELSE LEAF End as Node_Type
+FROm BST ORder by N
+
+========================
+Employees Earning More Than Their Managers
+
+# Write your MySQL query statement below
+Select Name from Emp JOIN Emp M on manamgerId = M.ID where salary > M.salary 
+
+==================================
+
+ Bank Account Summary II
+
+SELECT Users.name AS "name",
+SUM(Transactions.amount) AS "balance"
+FROM Users INNER JOIN Transactions
+ON Users.account = Transactions.account
+GROUP BY Transactions.account
+HAVING SUM(Transactions.amount) > 10000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
